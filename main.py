@@ -12,16 +12,19 @@ from os import environ
 app = Flask(__name__)
 app.app_context().push()
 
-app.config['SECRET_KEY'] = environ.get('SECRET_KEY')
+# app.config['SECRET_KEY'] = environ.get('SECRET_KEY')
+app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///top-movie-list.db"
 db = SQLAlchemy(app)
 # MOVIE API CREDENTIALS
 
-API_KEY= environ.get('API_KEY')
+# API_KEY= environ.get('API_KEY')
+API_KEY = 'd163201d6cd5122c27335c50341e5b0b'
 REQUEST_URL = "https://api.themoviedb.org/3/search/movie"
 
-API_READ_ACCESS_TOKEN= environ.get('API_READ_ACCESS_TOKEN')
+# API_READ_ACCESS_TOKEN= environ.get('API_READ_ACCESS_TOKEN')
+API_READ_ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTYzMjAxZDZjZDUxMjJjMjczMzVjNTAzNDFlNWIwYiIsInN1YiI6IjYzOGU1MmJjYzJiOWRmMDA4Y2MxMGQ3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-vy1XQoIT468POzhbeSKNbTnm19CDmhbIR2oCdHFH1A'
 api_key = '{{API_KEY}}'
 language = 'en-US'
 
@@ -87,7 +90,7 @@ def add():
 
 class RateMovieForm(FlaskForm):
     rating = FloatField( "Your Rating Out of 10 e.g. 7.5 (Enter as a whole or decimal number)", validators=[DataRequired(), NumberRange(min=1, max=10, message="Please enter a number between in the range of 1.0-10.0")])
-    review = StringField("Your Review")
+    review = StringField("Your Review",validators=[DataRequired(),])
     submit = SubmitField("Done")
     
          
