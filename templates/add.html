@@ -10,10 +10,10 @@
 {% block title %}Add Movie{% endblock %}
 
 {% block content %}
-<div class="container content">
+<div class="container">
     <h1 class="heading text-center">Add a Movie</h1>
     
-    <div class="container ">
+    <div class="container add-form ">
       {{csrf_token}}
       {{ wtf.quick_form(form) }}
      
@@ -21,7 +21,7 @@
      
 </div>
 <br>
-<div class="container" >
-  <a href="{{url_for ('home')}}" class="button" style="margin-left:10px;">Home</a>
+<div class="container home-btn " style="margin:auto;" >
+  <a href="{{url_for ('home')}}" class="button" style="margin-left:10px;" >Home</a>
   </div>
 {% endblock %}

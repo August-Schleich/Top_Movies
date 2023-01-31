@@ -26,6 +26,16 @@
 	 flex-wrap: wrap;
 	 max-width: 1500px;
 }
+
+/* #MEDIA QUERY FOR CONTENT CONTAINER */
+.add-form{
+	width:auto;
+}
+
+.home-btn{
+margin:auto;
+}
+
  p.overview {
 	 font-size: 12px;
 	 height: 200px;
@@ -224,3 +234,4 @@
  .release_date {
 	 font-weight: normal;
 }
+

@@ -8,6 +8,7 @@ import json
 import requests
 from pprint import pprint
 from os import environ
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 app.app_context().push()
@@ -28,7 +29,7 @@ API_READ_ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMTYzMjAxZDZjZDUxMjJjMj
 api_key = '{{API_KEY}}'
 language = 'en-US'
 
-          
+       
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
