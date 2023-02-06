@@ -20,6 +20,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///top-movie-list.db"
 db = SQLAlchemy(app)
 # MOVIE API CREDENTIALS
 
+csrf = CSRFProtect()
+csrf.init_app(app)
+app.config['WTF_CSRF_TIME_LIMIT'] = None
+
+
+
 # API_KEY= environ.get('API_KEY')
 API_KEY = 'd163201d6cd5122c27335c50341e5b0b'
 REQUEST_URL = "https://api.themoviedb.org/3/search/movie"
@@ -79,6 +85,7 @@ class AddMovieForm(FlaskForm):
     
 @app.route("/add", methods=["POST","GET"])
 def add():
+
     form = AddMovieForm()
     if form.validate_on_submit():
         movie_title = form.title.data
@@ -86,7 +93,7 @@ def add():
         data = response.json()["results"]
         title = form.title.data
         return render_template("select.html", options=data, title=title)
-
+ 
     return render_template("add.html", form=form)
 
 class RateMovieForm(FlaskForm):
